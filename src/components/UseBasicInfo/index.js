@@ -1,26 +1,30 @@
-import React from "react";
-import { TextInput, View } from "react-native";
+import React from 'react';
+import {TextInput, View} from 'react-native';
+import BInfo from './basicinfo';
 
 const UserBasicInfo = props => {
-    const {inputStyle, userData} = props;
-    const {firstname, lastName} = userData;
+  const {inputStyle, userData} = props;
+  const {firstname, lastName} = userData;
 
-    return(
-        <View>
-        <Text>BASIC USER INFO</Text>
-        <TextInput
+  return (
+    <View>
+      <BInfo />
+      <Text>BASIC USER INFO</Text>
+      <TextInput
         value={firstname}
         onChangeText={() => {}}
         placeholder="First Name"
-        style={inputStyle}/>
+        style={inputStyle}
+      />
 
-        <TextInput 
+      <TextInput
         value={lastName}
         onChangeText={() => {}}
         placeholder="Last Name"
-        style={inputStyle}/>
-        </View>
-    )
-}
+        style={inputStyle}
+      />
+    </View>
+  );
+};
 
 export default UserBasicInfo;

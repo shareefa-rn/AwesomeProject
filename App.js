@@ -6,68 +6,35 @@
  */
 
 import React, {useState} from 'react';
-import { StyleSheet,
+import {
+  StyleSheet,
   View,
-  Text, 
-  ScrollView, 
-  TextInput, 
-  Image, 
-  Button, 
-  Alert, 
-  TouchableOpacity,
-  TouchableHighlight,
-  ActivityIndicator,
-  Switch,
-  SafeAreaView} from 'react-native';
+  Text,
+  SafeAreaView,
+  Button,
+  ScrollView,
+} from 'react-native';
+import DashBoardScreen from './src/containers/DashBoardScreen';
 
-import TouchableHighlightExample from './src/components/TouchableHighlightExample';
-import MyTestComponent from './src/components/MyTestComponent';
-import UserProfile from './src/components/UserProfile';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import DetailScreen from './src/containers/DetailViewScreen';
 
+const Stack = createNativeStackNavigator();
 
-function App(){
+function App() {
   return (
-    <SafeAreaView>
-     <View> 
-      <ScrollView>   
-<MyTestComponent/>
-   <Image
-    style={{width:200, height: 200, marginVertical:20}}
-    source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/F-35A_flight_%28cropped%29.jpg/600px-F-35A_flight_%28cropped%29.jpg'
-  }}
-  />
-
-<Image
-    style={{width:200, height: 200, marginVertical:20}}
-    source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/F-35A_flight_%28cropped%29.jpg/600px-F-35A_flight_%28cropped%29.jpg'
-  }}
-  />
-
-  <Button
-  title={'Submit'}
-  onPress={() => {
-    Alert.alert('Success', 'Form Submitted', 'Ok');
-  }}/>
-
-  <TouchableOpacity
-  activeOpacity={0.2}
-  style={{marginHorizontal:10, height: 300}}>
-    <View>
-      <Text>i am TouchableOpacity image</Text>
-      <Image
-      style={{width:200, height:200, marginVertical: 20}}
-      source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/F-35A_flight_%28cropped%29.jpg/600px-F-35A_flight_%28cropped%29.jpg'
-      }}/>
-    </View>
-  </TouchableOpacity>
-<TouchableHighlightExample/>
-<ActivityIndicator size="large" color="#00ff00"/>
-<Button title="Press me"
-onPress={() => Alert.alert('Pressed')}/>
-
-</ScrollView>
-</View>
-</SafeAreaView>);
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Android Versions" component={DashBoardScreen} />
+        <Stack.Screen
+          name="Detail Screen"
+          component={DetailScreen}
+          initialParams={{city: 'New Delhi', country: 'India'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -75,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-  }
+  },
 });
 
 export default App;
