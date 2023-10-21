@@ -26,12 +26,13 @@ const DashBoardScreen = props => {
       style={{
         flexDirection: 'column',
       }}>
-      <TouchableOpacity style={styles.touchableText}>
-        <Text>Android Versions History</Text>
-      </TouchableOpacity>
       <View style={{justifyContent: 'center'}}>
+        <TouchableOpacity style={styles.touchableText}>
+          <Text>Android Versions History</Text>
+        </TouchableOpacity>
         <FlatList
           data={nameList}
+          style={{marginBottom: 0}}
           renderItem={({item}) => {
             return (
               <View style={styles.view}>
@@ -53,7 +54,7 @@ const DashBoardScreen = props => {
                       version: item.vVersion,
                       feature: item.vFeature,
                     });
-                    console.log('lo==' + item.vName);
+                    console.log('==Item==' + item.vName);
                   }}
                   style={styles.textview}>
                   <Text>{item.vName}</Text>
@@ -94,6 +95,8 @@ const DashBoardScreen = props => {
               ...nameList,
               {vName: name, vVersion: version, Feature: name + ' feature'},
             ]);
+            setName('');
+            setVersion('');
           }}>
           <Text>Add Version</Text>
         </TouchableOpacity>
