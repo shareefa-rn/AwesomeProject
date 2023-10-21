@@ -14,6 +14,7 @@ import {
   Button,
   ScrollView,
 } from 'react-native';
+
 import DashBoardScreen from './src/containers/DashBoardScreen';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -26,12 +27,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Android Versions" component={DashBoardScreen} />
-        <Stack.Screen
-          name="Detail Screen"
-          component={DetailScreen}
-          initialParams={{city: 'New Delhi', country: 'India'}}
-        />
+        <Stack.Screen name="Home" component={DashBoardScreen} />
+        <Stack.Screen name="Details Screen" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

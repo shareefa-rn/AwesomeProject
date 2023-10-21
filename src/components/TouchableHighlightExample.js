@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TextInput, TouchableHighlight, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 
 const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
@@ -17,11 +23,12 @@ const TouchableHighlightExample = () => {
         <Text style={styles.countText}>{count || null}</Text>
       </View>
       <TextInput
-          value={myTextInput}
-          onChangeText={changedText => {
-            setMyTextInput(changedText);
-          }}
-          style={styles.textInput} />
+        value={myTextInput}
+        onChangeText={changedText => {
+          setMyTextInput(changedText);
+        }}
+        style={styles.textInput}
+      />
     </View>
   );
 };
@@ -44,12 +51,12 @@ const styles = StyleSheet.create({
   countText: {
     color: '#FF00FF',
   },
-  textInput:{
+  textInput: {
     height: 40,
     borderWidth: 1,
     borderColor: 'blue',
-    backgroundColor: 'white'
-}
+    backgroundColor: 'white',
+  },
 });
 
 export default TouchableHighlightExample;

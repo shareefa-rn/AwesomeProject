@@ -16,16 +16,8 @@ const DashBoardScreen = props => {
 
   const [vName, vVersion, vFeature] = useState('');
   const [nameList, setNameList] = useState([
-    {vName: 'CupCake'},
-    {vName: 'Donut'},
-  ]);
-  const [versionList, setVersionList] = useState([
-    {vVersion: '1.5'},
-    {vVersion: '1.6'},
-  ]);
-  const [featureList, setFeatureList] = useState([
-    {vFeature: 'CupCake feature'},
-    {vFeature: 'Donut feature'},
+    {vName: 'CupCake', vVersion: '1.5', vFeature: 'CupCake feature'},
+    {vName: 'Donut', vVersion: '1.6', vFeature: 'Donut feature'},
   ]);
 
   return (
@@ -33,14 +25,24 @@ const DashBoardScreen = props => {
       style={{
         flexDirection: 'column',
       }}>
+      <TouchableOpacity
+        style={{
+          height: 40,
+          marginHorizontal: 10,
+          backgroundColor: 'pink',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Text>Android Versions History</Text>
+      </TouchableOpacity>
       <View style={{justifyContent: 'center'}}>
-        <Text>Android Version History</Text>
         <FlatList
           data={nameList}
           renderItem={({item}) => {
             return (
               <View
                 style={{
+                  marginHorizontal: 10,
                   height: 40,
                   backgroundColor: 'lightgreen',
                   marginVertical: 5,
@@ -53,36 +55,33 @@ const DashBoardScreen = props => {
                     width: 20,
                     height: 20,
                     marginHorizontal: 10,
+                    flex: 1,
                   }}
                   source={{
                     uri: 'https://media.timeout.com/images/106049585/image.jpg',
                   }}
                 />
-                <View
+
+                <TouchableOpacity
+                  onPress={() => {
+                    props.navigation.navigate('Details Screen', {
+                      name: item.vName,
+                      version: item.vVersion,
+                      feature: item.vFeature,
+                    });
+                    console.log('lo==' + item.vName);
+                  }}
                   style={{
+                    height: 40,
                     flex: 1,
+                    marginHorizontal: 10,
+                    backgroundColor: 'lightgreen',
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
                   <Text>{item.vName}</Text>
-                </View>
-                <TouchableOpacity
-                  onPress={() => {
-                    props.navigation.navigate('Settings', {
-                      city,
-                      country,
-                    });
-                  }}
-                  style={{
-                    height: 40,
-                    marginHorizontal: 10,
-                    backgroundColor: 'pink',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginBottom: 100,
-                  }}>
-                  <Text>Goto Settings</Text>
                 </TouchableOpacity>
+                <Text style={{flex: 1}}>{item.vVersion}</Text>
               </View>
             );
           }}
@@ -107,6 +106,7 @@ const DashBoardScreen = props => {
             width: 100,
             margin: 10,
             padding: 5,
+            flex: 1,
           }}
         />
         <TextInput
@@ -122,6 +122,7 @@ const DashBoardScreen = props => {
             width: 100,
             margin: 10,
             padding: 5,
+            flex: 1,
           }}
         />
         <TouchableOpacity
@@ -131,12 +132,14 @@ const DashBoardScreen = props => {
             height: 40,
             margin: 10,
             padding: 5,
+            flex: 1,
           }}
           onPress={() => {
             console.log('clicked version' + name + version);
-            setNameList([...nameList, {vName: name}]);
-            setVersionList([...versionList, {vVersion: version}]);
-            setFeatureList([...featureList, {vFeature: version + ' feature'}]);
+            setNameList([
+              ...nameList,
+              {vName: name, vVersion: version, Feature: name + ' feature'},
+            ]);
           }}>
           <Text>Add Version</Text>
         </TouchableOpacity>

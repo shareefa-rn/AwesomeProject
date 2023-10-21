@@ -1,4 +1,4 @@
-import {} from 'react';
+import React from 'react';
 import {View, Text, TouchableOpacity, Button} from 'react-native';
 
 const DetailScreen = props => {
@@ -6,10 +6,9 @@ const DetailScreen = props => {
 
   return (
     <View>
-      <Text>This is settings screen</Text>
-
-      <Text>{route.params.city}</Text>
-      <Text>{route.params.country}</Text>
+      <Text>{props.route.params.name}</Text>
+      <Text>{props.route.params.version}</Text>
+      <Text>{props.route.params.feature}</Text>
 
       <TouchableOpacity
         onPress={() => {
