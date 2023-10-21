@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
+import styles from './styles';
 
 const DashBoardScreen = props => {
   const [name, setName] = useState('');
@@ -25,14 +26,7 @@ const DashBoardScreen = props => {
       style={{
         flexDirection: 'column',
       }}>
-      <TouchableOpacity
-        style={{
-          height: 40,
-          marginHorizontal: 10,
-          backgroundColor: 'pink',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <TouchableOpacity style={styles.touchableText}>
         <Text>Android Versions History</Text>
       </TouchableOpacity>
       <View style={{justifyContent: 'center'}}>
@@ -40,22 +34,12 @@ const DashBoardScreen = props => {
           data={nameList}
           renderItem={({item}) => {
             return (
-              <View
-                style={{
-                  marginHorizontal: 10,
-                  height: 40,
-                  backgroundColor: 'lightgreen',
-                  marginVertical: 5,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  flexDirection: 'row',
-                }}>
+              <View style={styles.view}>
                 <Image
                   style={{
                     width: 20,
                     height: 20,
                     marginHorizontal: 10,
-                    flex: 1,
                   }}
                   source={{
                     uri: 'https://media.timeout.com/images/106049585/image.jpg',
@@ -71,14 +55,7 @@ const DashBoardScreen = props => {
                     });
                     console.log('lo==' + item.vName);
                   }}
-                  style={{
-                    height: 40,
-                    flex: 1,
-                    marginHorizontal: 10,
-                    backgroundColor: 'lightgreen',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
+                  style={styles.textview}>
                   <Text>{item.vName}</Text>
                 </TouchableOpacity>
                 <Text style={{flex: 1}}>{item.vVersion}</Text>
@@ -99,15 +76,7 @@ const DashBoardScreen = props => {
             setName(changedText);
           }}
           placeholder="Version Name"
-          style={{
-            justifyContent: 'center',
-            backgroundColor: 'pink',
-            height: 40,
-            width: 100,
-            margin: 10,
-            padding: 5,
-            flex: 1,
-          }}
+          style={styles.textInuput}
         />
         <TextInput
           value={version}
@@ -115,25 +84,10 @@ const DashBoardScreen = props => {
             setVersion(changedText);
           }}
           placeholder="Version Number"
-          style={{
-            justifyContent: 'center',
-            backgroundColor: 'pink',
-            height: 40,
-            width: 100,
-            margin: 10,
-            padding: 5,
-            flex: 1,
-          }}
+          style={styles.textInuput}
         />
         <TouchableOpacity
-          style={{
-            justifyContent: 'center',
-            backgroundColor: 'pink',
-            height: 40,
-            margin: 10,
-            padding: 5,
-            flex: 1,
-          }}
+          style={styles.textInuput}
           onPress={() => {
             console.log('clicked version' + name + version);
             setNameList([
