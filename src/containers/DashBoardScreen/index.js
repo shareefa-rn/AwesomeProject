@@ -15,6 +15,8 @@ const DashBoardScreen = props => {
 
   const [version, setVersion] = useState('');
 
+  const [feature, setFeature] = useState('');
+
   const [vName, vVersion, vFeature] = useState('');
   const [nameList, setNameList] = useState([
     {vName: 'CupCake', vVersion: '1.5', vFeature: 'CupCake feature'},
@@ -91,12 +93,14 @@ const DashBoardScreen = props => {
           style={styles.textInuput}
           onPress={() => {
             console.log('clicked version' + name + version);
+            setFeature(name + ' feature');
             setNameList([
               ...nameList,
-              {vName: name, vVersion: version, Feature: name + ' feature'},
+              {vName: name, vVersion: version, vFeature: name + ' feature'},
             ]);
             setName('');
             setVersion('');
+            setFeature('');
           }}>
           <Text>Add Version</Text>
         </TouchableOpacity>
