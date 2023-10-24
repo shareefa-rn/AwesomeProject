@@ -11,7 +11,6 @@ export default StyleSheet.create({
   textview: {
     height: 40,
     flex: 4,
-    borderWidth: 1,
     marginHorizontal: 10,
     backgroundColor: 'lightgreen',
     justifyContent: 'center',
@@ -32,7 +31,6 @@ export default StyleSheet.create({
     height: 40,
     backgroundColor: 'lightgreen',
     marginVertical: 5,
-    borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

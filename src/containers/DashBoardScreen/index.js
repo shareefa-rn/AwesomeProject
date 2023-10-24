@@ -12,9 +12,7 @@ import styles from './styles';
 
 const DashBoardScreen = props => {
   const [name, setName] = useState('');
-
   const [version, setVersion] = useState('');
-
   const [feature, setFeature] = useState('');
 
   const [vName, vVersion, vFeature] = useState('');
@@ -26,15 +24,16 @@ const DashBoardScreen = props => {
   return (
     <SafeAreaView
       style={{
+        flex: 1,
         flexDirection: 'column',
       }}>
-      <View style={{justifyContent: 'center'}}>
+      <View style={{justifyContent: 'center', flex: 1}}>
         <TouchableOpacity style={styles.touchableText}>
           <Text>Android Versions History</Text>
         </TouchableOpacity>
         <FlatList
           data={nameList}
-          style={{marginBottom: 0}}
+          style={{flex: 1}}
           renderItem={({item}) => {
             return (
               <View style={styles.view}>
@@ -70,8 +69,7 @@ const DashBoardScreen = props => {
       <View
         style={{
           flexDirection: 'row',
-          flexWrap: 'wrap',
-          flex: 1,
+          height: 60,
         }}>
         <TextInput
           value={name}
