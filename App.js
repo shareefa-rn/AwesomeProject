@@ -15,11 +15,14 @@ import {
   ScrollView,
 } from 'react-native';
 
-import DashBoardScreen from './src/containers/DashBoardScreen';
-
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import DetailScreen from './src/containers/DetailViewScreen';
+import {
+  DashBoardScreen,
+  DetailScreen,
+  HooksScreen,
+  TestScreen,
+} from './src/containers';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +30,10 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Test Screen" component={TestScreen} />
         <Stack.Screen name="Home" component={DashBoardScreen} />
         <Stack.Screen name="Details Screen" component={DetailScreen} />
+        <Stack.Screen name="Hooks Screen" component={HooksScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
