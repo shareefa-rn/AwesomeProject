@@ -23,17 +23,48 @@ import {
   HooksScreen,
   TestScreen,
 } from './src/containers';
+import SettingScreen from './src/containers/DetailViewScreen/SettingScreen';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+
+  const getAuthStack = () => {
+    return (
+      <Stack.Group>
+        <Stack.Screen
+          name="Login"
+          component={() => (
+            <View>
+              <Text>Login</Text>
+            </View>
+          )}></Stack.Screen>
+        <Stack.Screen
+          name="Signup"
+          component={() => (
+            <View>
+              <Text>Signup</Text>
+            </View>
+          )}></Stack.Screen>
+      </Stack.Group>
+    );
+  };
+  const getMainStack = () => {
+    return (
+      <Stack.Group>
         <Stack.Screen name="Test Screen" component={TestScreen} />
         <Stack.Screen name="Home" component={DashBoardScreen} />
         <Stack.Screen name="Details Screen" component={DetailScreen} />
         <Stack.Screen name="Hooks Screen" component={HooksScreen} />
+        <Stack.Screen name="Navigation" component={SettingScreen} />
+      </Stack.Group>
+    );
+  };
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {isUserLoggedIn ? getMainStack() : getAuthStack()}
       </Stack.Navigator>
     </NavigationContainer>
   );

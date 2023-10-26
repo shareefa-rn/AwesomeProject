@@ -1,8 +1,16 @@
-import {} from 'react';
+import {useEffect} from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
 const TestScreen = props => {
+  useEffect(() => {
+    console.log('=========');
+    console.log(props.route.params);
+    console.log('=========');
+  }, [props.route.params]);
+
+  console.log('Test screen got rerendered');
+
   return (
     <SafeAreaView style={{}}>
       <View>
@@ -21,6 +29,14 @@ const TestScreen = props => {
             console.log('==Home==tested==');
           }}>
           <Text>Flat List Page</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.textInuput}
+          onPress={() => {
+            props.navigation.navigate('Navigation', {});
+            console.log('==Navigation==tested==');
+          }}>
+          <Text>Navigation params</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
