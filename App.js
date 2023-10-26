@@ -22,8 +22,8 @@ import {
   DetailScreen,
   HooksScreen,
   TestScreen,
+  SettingScreen,
 } from './src/containers';
-import SettingScreen from './src/containers/DetailViewScreen/SettingScreen';
 
 const Stack = createNativeStackNavigator();
 
