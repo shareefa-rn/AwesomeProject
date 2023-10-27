@@ -1,7 +1,7 @@
 import {} from 'react';
 import {View, Button, TouchableOpacity, Text} from 'react-native';
 
-const SettingScreen = props => {
+const NavigationTestScreen = props => {
   return (
     <View>
       <Button
@@ -40,4 +40,4 @@ const SettingScreen = props => {
   );
 };
 
-export default SettingScreen;
+export default NavigationTestScreen;

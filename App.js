@@ -9,7 +9,7 @@ import {DrawerScreen} from './src/containers';
 
 const App = () => {
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer>
       <DrawerScreen />
     </NavigationContainer>
   );
