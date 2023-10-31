@@ -13,16 +13,13 @@ const TestScreen = props => {
   console.log('Test screen got rerendered');
 
   useEffect(() => {
-    PersistanceHelper.getValue(
-      'myKey',
-      data => {
-        console.log('====PersistanceHelper====data=' + data);
-      },
-      error => {
-        console.log('=====PersistanceHelper==error==' + error);
-      },
-    );
+    isAsyncFunction();
   });
+  const isAsyncFunction = async () => {
+    const myvalue = await PersistanceHelper.getValue('myKey');
+    console.log(myvalue);
+  };
+
   return (
     <SafeAreaView style={{alignItems: 'center'}}>
       <View>
