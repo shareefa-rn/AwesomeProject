@@ -18,6 +18,7 @@ export default StyleSheet.create({
     textAlign: 'left',
   },
   textInuput: {
+    textAlign: 'center',
     justifyContent: 'center',
     backgroundColor: 'pink',
     height: 40,

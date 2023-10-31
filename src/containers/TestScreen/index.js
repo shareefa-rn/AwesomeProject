@@ -12,7 +12,7 @@ const TestScreen = props => {
   console.log('Test screen got rerendered');
 
   return (
-    <SafeAreaView style={{}}>
+    <SafeAreaView style={{alignItems: 'center'}}>
       <View>
         <TouchableOpacity
           style={styles.textInuput}
@@ -37,6 +37,22 @@ const TestScreen = props => {
             console.log('==Navigation==tested==');
           }}>
           <Text>Navigation params</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.textInuput}
+          onPress={() => {
+            props.navigation.navigate('Counter Screen', {});
+            console.log('==LifeCycle==tested==');
+          }}>
+          <Text>LifeCycle Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.textInuput}
+          onPress={() => {
+            props.navigation.navigate('Async', {});
+            console.log('==Async==tested==');
+          }}>
+          <Text>Async Screen</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

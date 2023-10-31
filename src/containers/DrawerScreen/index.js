@@ -11,6 +11,8 @@ import HooksScreen from '../HooksScreen';
 import NavigationTestScreen from '../../NavigationScreen';
 import DashBoardScreen from '../DashBoardScreen';
 import TestScreen from '../TestScreen';
+import LifeyCycleTestScreen from '../LifeCycleTestScreen';
+import CounterButton from '../LifeCycleTestScreen/CounterButton';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -39,6 +41,12 @@ const DrawerScreen = () => {
         )}
       />
       <Stack.Screen name="Details Screen" component={DetailScreen} />
+
+      <Stack.Screen name="LifeCycle Screen" component={LifeyCycleTestScreen} />
+      <Stack.Screen name="Counter Screen" component={CounterButton} />
+
+      <Stack.Screen name="Async" component={CounterButton} />
+
       <Stack.Screen
         name="Hooks Screen"
         component={HooksScreen}
