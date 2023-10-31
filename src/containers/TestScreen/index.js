@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
+import {PersistanceHelper} from '../../helpers';
 
 const TestScreen = props => {
   useEffect(() => {
@@ -11,6 +12,17 @@ const TestScreen = props => {
 
   console.log('Test screen got rerendered');
 
+  useEffect(() => {
+    PersistanceHelper.getValue(
+      'myKey',
+      data => {
+        console.log('====PersistanceHelper====data=' + data);
+      },
+      error => {
+        console.log('=====PersistanceHelper==error==' + error);
+      },
+    );
+  });
   return (
     <SafeAreaView style={{alignItems: 'center'}}>
       <View>
