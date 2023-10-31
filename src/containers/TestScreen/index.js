@@ -17,7 +17,11 @@ const TestScreen = props => {
   });
   const isAsyncFunction = async () => {
     const myvalue = await PersistanceHelper.getValue('myKey');
+
+    const myObject = await PersistanceHelper.getObject('myFirstObject');
     console.log(myvalue);
+
+    console.log(myObject);
   };
 
   return (

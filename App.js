@@ -12,6 +12,14 @@ import {PersistanceHelper} from './src/helpers';
 const App = () => {
   useEffect(() => {
     PersistanceHelper.setValue('myKey', 'hey is this value stored?');
+
+    const userObject = {
+      basicInfo: {firstName: 'abc', lastName: 'xyz'},
+      contactInfo: {phone: '123-456', email: 'abc@xyz'},
+      educationInfo: {degree: 'abc123', institution: 'xyz'},
+    };
+
+    PersistanceHelper.setObject('myFirstObject', userObject);
   }, []);
 
   return (

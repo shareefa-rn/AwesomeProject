@@ -20,5 +20,13 @@ class PersistanceHelper {
       console.log(ex);
     }
   };
+
+  setObject = (key, Object) => {
+    this.setValue(key, JSON.stringify(Object));
+  };
+  getObject = async key => {
+    const val = await this.getValue(key);
+    return JSON.parse(val);
+  };
 }
 export default new PersistanceHelper();
