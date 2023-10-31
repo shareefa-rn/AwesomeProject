@@ -14,7 +14,7 @@ import TestScreen from '../TestScreen';
 import DashBoardScreen from '../DashBoardScreen';
 import DetailScreen from '../DetailViewScreen';
 import HooksScreen from '../HooksScreen';
-import NavigationTestScreen from '../../NavigationScreen';
+import NavigationTestScreen from '../NavigationScreen';
 
 const Stack = createNativeStackNavigator();
 

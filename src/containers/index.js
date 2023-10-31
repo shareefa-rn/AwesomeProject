@@ -4,7 +4,7 @@ import HooksScreen from './HooksScreen';
 import TestScreen from './TestScreen';
 import DrawerScreen from './DrawerScreen';
 import StackNavScreen from './StackNavScreen';
-import NavigationTestScreen from '../NavigationScreen';
+import NavigationTestScreen from './NavigationScreen';
 
 export {
   DashBoardScreen,

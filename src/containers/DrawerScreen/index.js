@@ -8,7 +8,7 @@ import StackNavScreen from '../StackNavScreen';
 import BottomTabNavigator from '../TabScreen';
 import DetailScreen from '../DetailViewScreen';
 import HooksScreen from '../HooksScreen';
-import NavigationTestScreen from '../../NavigationScreen';
+import NavigationTestScreen from '../NavigationScreen';
 import DashBoardScreen from '../DashBoardScreen';
 import TestScreen from '../TestScreen';
 import LifeyCycleTestScreen from '../LifeCycleTestScreen';
