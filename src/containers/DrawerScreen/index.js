@@ -13,6 +13,8 @@ import DashBoardScreen from '../DashBoardScreen';
 import TestScreen from '../TestScreen';
 import LifeyCycleTestScreen from '../LifeCycleTestScreen';
 import CounterButton from '../LifeCycleTestScreen/CounterButton';
+import {EventRegister} from 'react-native-event-listeners';
+import {PersistanceHelper} from '../../helpers';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -36,6 +38,14 @@ const DrawerScreen = () => {
               name="Stack"
               component={StackNavScreen}
               options={{title: 'Navigation Screen'}}
+            />
+            <Drawer.Screen
+              name="Logout"
+              component={() => {
+                PersistanceHelper.setObject('login', {});
+                EventRegister.emit('loginevent');
+              }}
+              options={{title: 'Logout Screen'}}
             />
           </Drawer.Navigator>
         )}

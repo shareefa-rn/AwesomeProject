@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -15,22 +15,34 @@ import DashBoardScreen from '../DashBoardScreen';
 import DetailScreen from '../DetailViewScreen';
 import HooksScreen from '../HooksScreen';
 import NavigationTestScreen from '../NavigationScreen';
+import LoginScreen from '../LoginScreen';
+import {PersistanceHelper} from '../../helpers';
+import {EventRegister} from 'react-native-event-listeners';
 
 const Stack = createNativeStackNavigator();
 
 function StackNavScreen() {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  useEffect(() => {
+    EventRegister.addEventListener('loginEvent', data => {
+      PersistanceHelper.getObject('login')
+        .then(data => {
+          console.log(data);
+          if (data.userName && data.password) {
+            setIsUserLoggedIn(true);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    });
+  });
 
   const getAuthStack = () => {
     return (
       <Stack.Group>
-        <Stack.Screen
-          name="Login"
-          component={() => (
-            <View>
-              <Text>Login</Text>
-            </View>
-          )}></Stack.Screen>
+        <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
         <Stack.Screen
           name="Signup"
           component={() => (

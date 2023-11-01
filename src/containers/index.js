@@ -5,6 +5,7 @@ import TestScreen from './TestScreen';
 import DrawerScreen from './DrawerScreen';
 import StackNavScreen from './StackNavScreen';
 import NavigationTestScreen from './NavigationScreen';
+import LoginScreen from './LoginScreen';
 
 export {
   DashBoardScreen,
@@ -14,4 +15,5 @@ export {
   DrawerScreen,
   StackNavScreen,
   NavigationTestScreen,
+  LoginScreen,
 };
